@@ -1847,6 +1847,7 @@ function initBuffers() {
 	mat4.translate(mvMatrix, [0.0, 0.0, -dist / 16.0]);  /* viewing transform  */
 	
 	mat4.rotate(mvMatrix, rotx * DegToRad, [1.0, 0.0, 0.0]);
+
 	mat4.rotate(mvMatrix, roty * DegToRad, [0.0, 1.0, 0.0]);
 
 	var worldMatrix = mat4.create(mvMatrix);
@@ -2436,7 +2437,17 @@ function nextmacbook(timePassed) {
       // Make an FPS display
       $(".ui-dialog:has(#settingsDialog) .ui-dialog-buttonpane").prepend('<div class="showFPS"><\/div>');
   });
+  var background = new Audio("Audio/onBackground.mp3");
+  var winlevel = new Audio("Audio/onWinlevel.mp3");
+  var rewardcapture = new Audio("Audio/onRewardcapture.mp3");
+  var gameover= new Audio("Audio/onGameover.mp3");
+  var jump = new Audio("Audio/onJump.mp3");
+  var loselife = new Audio("Audio/onLoselife.mp3");
+  var reward = new Audio("Audio/onReward.mp3");
   
+
+  
+	background.play();
 </script>
 
 <!-- This section is Google tracking stuff, nothing WebGL related here...  -->
@@ -2456,7 +2467,6 @@ function nextmacbook(timePassed) {
 
 
 <body onload="startup();">
-
   <!-- The parent node of the canvas can get an error written into it by webgl-utils.js. -->
   <div id="canvasContainer">
     <canvas id="glCanvas" width="800" height="600"></canvas>
